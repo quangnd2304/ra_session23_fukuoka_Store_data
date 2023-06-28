@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage</title>
+</head>
+
+<body>
+    <script>
+        // 1. Lưu dữ liệu vào session storage
+        // sessionStorage.setItem(key,value)
+        sessionStorage.setItem("StudentName", "Nguyễn Văn A");
+        let student = { "studentId": "SV001", "studentName": "Nguyễn Văn B" };
+        sessionStorage.setItem("StudentInfo", JSON.stringify(student));
+        // 2. Lấy dữ liệu từ session storage
+        // sessionStorage.getItem(key)
+        console.log("Tên sinh viên lấy từ sessionStorage-->", sessionStorage.getItem("StudentName"));
+        console.log("Đối tượng sinh viên lấy từ sessionStorage-->", JSON.parse(sessionStorage.getItem("StudentInfo")));
+        // 3. Xóa dữ liệu trong session storage
+        // sessionStorage.removeItem(key)
+        sessionStorage.removeItem("StudentName");
+        // 4. Xóa toàn bộ dữ liệu trong session storage
+        // sessionStorage.clear()
+        sessionStorage.clear();
+    </script>
+</body>
+
+</html>

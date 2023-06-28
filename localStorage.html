@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+
+<body>
+    <script>
+        // I.localStorage.setItem(key,value): Lưu trữ dữ liệu value theo key
+        // key phải duy nhất và không được trùng lặp
+        // 1. Lưu trữ dữ liệu kiểu primitive vào local storage
+        let studentName = "Nguyễn Văn A";
+        localStorage.setItem("StudentName", studentName);
+        localStorage.setItem("age", 20);
+        // 2. Lưu trữ dữ liệu kiểu non_primitive (reference)
+        // Chuyển kiểu đối tượng thành JSON --> lưu trữ dữ liệu
+        // JSON.stringify: chuyển từ Object --> JSON
+        let student = { "studentId": "SV001", "studentName": "Nguyễn Văn B", "age": 22 };
+        localStorage.setItem("StudentInfo", JSON.stringify(student));
+        // II. localStorage.getItem(key): lấy dữ liệu từ localStorage theo key
+        // Lấy dữ liệu studentName từ localStorage và in ra
+        let name = localStorage.getItem("StudentName");
+        console.log("Tên sinh viên vừa lấy từ localStorage-->", name);
+        // Lấy dữ liệu đối tượng StudentInfo từ localStorage
+        // Đối với các kiểu non_primitive --> JSON --> convert JSON sang object
+        // JSON.parse("JSON"): convert từ JSON sang các đối tượng của javascript
+        let studentInfo = JSON.parse(localStorage.getItem("StudentInfo"));
+        console.log("Đối tượng sinh viên vừa lấy từ localStorage-->", studentInfo);
+        console.log("Mã sinh viên là ", studentInfo.studentId);
+        // III. Xóa dữ liệu trong localStorage
+        // localStorage.removeItem(key): Xóa dữ liệu trong localStorage theo key
+        localStorage.removeItem("StudentName");
+        localStorage.removeItem("StudentInfo");
+        // IV: Xóa toàn bộ dữ liệu trong localStorage
+        // localStorage.clear()
+        localStorage.clear();
+
+    </script>
+</body>
+
+</html>
